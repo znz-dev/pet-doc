@@ -1,28 +1,21 @@
 # Pet
 ---
-## 新建一个宠物
+## 显示指定宠物
 
 ```
-POST /pets.json
+GET /pets/:id.json
 ```
 
 ## Parameters
 
 |参数名|参数类型|是否必填|参数描述|
 |-----|--------|-------|--------|
-|name|string|Y|宠物名称|
-|species|string|N|宠物品种|
-|gender|string|N|宠物性别|
-|status|string|N|宠物状态|
-|avatar|string|N|宠物头像|
-|provider_id|int|Y|宠物提供人id|
+|id|int|Y|宠物id|
 
 
 ## Examples
 ```
-localhost:3000/pets.json?name=希尔哇纳斯&species=cat&gender=female&status=1&provider_id=1
-
-# 注： 传入图片的变量名为avatar
+localhost:3000/pets/6.json
 ```
 
 ## Success Response
@@ -33,13 +26,13 @@ localhost:3000/pets.json?name=希尔哇纳斯&species=cat&gender=female&status=1
     "message": ""
   },
   "data": {
-    "id": 5,
+    "id": 6,
     "name": "希尔哇纳斯",
     "species": "cat",
     "gender": "female",
     "status": "1",
     "avatar": {
-      "url": "/uploads/pet/avatar/5/yellow_star.jpg"
+      "url": "/uploads/pet/avatar/6/yellow_star.jpg"
     },
     "provider": {
       "id": 1,
