@@ -21,43 +21,64 @@ GET /pets.json
 ```
 
 ## Success Response
-```
+```ruby
 {
   "status": {
     "code": "20000",
     "message": ""
   },
-  "data": [
-    {
-      "id": 8,
-      "name": "萨摩耶",
-      "species": "dog",
-      "gender": "female",
-      "status": null,
-      "avatar": {
-        "url": "/uploads/pet/avatar/8/%E8%90%A8%E6%91%A9%E8%80%B6.jpg"
+  "data": {
+    # 宠物数组对象，其中的每一个子对象介绍参考create.md
+    "pets": [
+      {
+        "id": 13,
+        "name": "哈士奇",
+        "species": "dog",
+        "gender": "male",
+        "status": null,
+        "avatar": {
+          "url": "/uploads/pet/avatar/13/%E5%93%88%E5%A3%AB%E5%A5%87.jpg"
+        },
+        "description": null,
+        "provider": {
+          "id": 1,
+          "username": "zhouxin"
+        },
+        "adopter": null
       },
-      "provider": {
-        "id": 1,
-        "username": "zhouxin"
+      {
+        "id": 14,
+        "name": "布偶猫",
+        "species": "cat",
+        "gender": "female",
+        "status": null,
+        "avatar": {
+          "url": "/uploads/pet/avatar/14/%E5%B8%83%E5%81%B6%E7%8C%ABjpg"
+        },
+        "description": null,
+        "provider": {
+          "id": 1,
+          "username": "zhouxin"
+        },
+        "adopter": null
       },
-      "adopter": null
-    },
-    {
-      "id": 7,
-      "name": "英国短毛猫",
-      "species": "cat",
-      "gender": "male",
-      "status": null,
-      "avatar": {
-        "url": null
-      },
-      "provider": {
-        "id": 1,
-        "username": "zhouxin"
-      },
-      "adopter": null
-    }
-  ]
+      {
+        "id": 15,
+        "name": "挪威森林猫",
+        "species": "cat",
+        "gender": "male",
+        "status": null,
+        "avatar": {
+          "url": "/uploads/pet/avatar/15/%E6%8C%AA%E5%A8%81%E6%A3%AE%E6%9E%97%E7%8C%AB.jpg"
+        },
+        "description": null,
+        "provider": {
+          "id": 1,
+          "username": "zhouxin"
+        },
+        "adopter": null
+      }
+    ]
+  }
 }
 ```

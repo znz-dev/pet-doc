@@ -16,11 +16,12 @@ POST /pets.json
 |status|string|N|宠物状态|
 |avatar|string|N|宠物头像|
 |provider_id|int|Y|宠物提供人id|
+|description|string|N|宠物描述|
 
 
 ## Examples
 ```
-localhost:3000/pets.json?name=希尔哇纳斯&species=cat&gender=female&status=1&provider_id=1
+localhost:3000/pets.json?name=小王子&species=dog&gender=male&status=1&provider_id=1
 
 # 注： 传入图片的变量名为avatar
 ```
@@ -29,32 +30,36 @@ localhost:3000/pets.json?name=希尔哇纳斯&species=cat&gender=female&status=1
 ```ruby
 {
   "status": {
-    # 接口返回状态
     "code": "20000",
     "message": ""
   },
   "data": {
-    # 宠物ID
-    "id": 5,
-    # 宠物姓名
-    "name": "希尔哇纳斯",
-    # 宠物物种
-    "species": "cat",
-    # 宠物性别
-    "gender": "female",
-    # 暂时不用
-    "status": "1",
-    # 头像
-    "avatar": {
-      "url": "/uploads/pet/avatar/5/yellow_star.jpg"
-    },
-    # 宠物提供人信息
-    "provider": {
-      "id": 1,
-      "username": "zhouxin"
+    # 宠物对象
+    "pet": {
+      # 宠物ID
+      "id": 22,
+      # 宠物名
+      "name": "小王子",
+      # 宠物品种
+      "species": "dog",
+      # 宠物性别
+      "gender": "male",
+      # 宠物状态
+      "status": "1",
+      # 宠物头像
+      "avatar": {
+        "url": "/uploads/pet/avatar/22/yellow_star.jpg"
+      },
+      # 宠物描述
+      "description": "我是小王子",
+      # 宠物提供人
+      "provider": {
+        "id": 1,
+        "username": "zhouxin"
+      },
+      # 宠物领养人，根据判断是不是Null来确定是不是已领养
+      "adopter": null
     }
-    # 宠物收养人信息,如果为空，则该宠物没有收养人，如果宠物有收养人，那么格式和提供人相同。
-    "adopter": null
   }
 }
 ```
