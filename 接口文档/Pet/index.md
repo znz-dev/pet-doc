@@ -17,7 +17,7 @@ GET /pets.json
 
 ## Examples
 ```
-localhost:3000/pets.json?order=time_asc
+120.25.124.236:3000/pets.json?per=2&page=1&order=time_desc
 ```
 
 ## Success Response
@@ -29,46 +29,34 @@ localhost:3000/pets.json?order=time_asc
   },
   "data": [
     {
-      "id": 3,
-      "name": "妞妞",
+      "id": 8,
+      "name": "萨摩耶",
       "species": "dog",
       "gender": "female",
-      "status": "1",
+      "status": null,
+      "avatar": {
+        "url": "/uploads/pet/avatar/8/%E8%90%A8%E6%91%A9%E8%80%B6.jpg"
+      },
+      "provider": {
+        "id": 1,
+        "username": "zhouxin"
+      },
+      "adopter": null
+    },
+    {
+      "id": 7,
+      "name": "英国短毛猫",
+      "species": "cat",
+      "gender": "male",
+      "status": null,
       "avatar": {
         "url": null
       },
       "provider": {
         "id": 1,
         "username": "zhouxin"
-      }
-    },
-    {
-      "id": 4,
-      "name": "端午",
-      "species": "cat",
-      "gender": "female",
-      "status": "1",
-      "avatar": {
-        "url": null
       },
-      "provider": {
-        "id": 1,
-        "username": "zhouxin"
-      }
-    },
-    {
-      "id": 5,
-      "name": "希尔哇纳斯",
-      "species": "cat",
-      "gender": "female",
-      "status": "1",
-      "avatar": {
-        "url": "/uploads/pet/avatar/5/yellow_star.jpg"
-      },
-      "provider": {
-        "id": 1,
-        "username": "zhouxin"
-      }
+      "adopter": null
     }
   ]
 }
