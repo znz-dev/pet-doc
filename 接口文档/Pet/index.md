@@ -5,6 +5,7 @@
 ```
 GET /pets.json
 ```
+---
 
 ## Parameters
 
@@ -14,6 +15,26 @@ GET /pets.json
 |page|int|N|页数(默认为1)|
 |per|int|N|每页显示数(默认为12)|
 
+### 搜索参数
+
+``参数名search[:category]``
+
+其中，:category可选参数为
+```ruby
+["id", "name", "species", "gender", "status", "provider_id", "adopter_id", "created_at", "updated_at", "avatar", "description"]
+```
+支持的特殊搜索
+
+1.模糊搜索
+
+``参数名为search[like_:category]``
+
+2.条件外搜索
+
+``参数名为search[not_:category]``
+
+
+---
 
 ## Examples
 ```
