@@ -12,7 +12,8 @@ POST /messages.json
 |-----|--------|-------|--------|
 |user_id|int|Y|当前用户id，即发送人id|
 |receiver_id|int|Y|发送人用户id|
-|content|string|Y|发送消息|
+|title|string|Y|消息标题|
+|content|string|Y|消息内容|
 
 ## Examples
 ```
