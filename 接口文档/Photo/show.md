@@ -3,7 +3,7 @@
 ## 根据照片ID查看照片
 
 ```
-POST /photos/:id.json
+GET /photos/:id.json
 ```
 
 ## Parameters
