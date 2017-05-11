@@ -1,0 +1,135 @@
+
+ActiveRecord::Schema.define(version: 20170511063013) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "adoption_applies", force: :cascade, comment: "领养申请" do |t|
+    t.integer  "pet_id",                   comment: "宠物ID"
+    t.integer  "user_id",                  comment: "领养申请人ID"
+    t.integer  "provider_id",              comment: "宠物提供人ID"
+    t.string   "status",                   comment: "申请状态"
+    t.text     "content",                  comment: "申请理由"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "albums", force: :cascade do |t|
+    t.integer  "pet_id"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "collections", force: :cascade, comment: "收藏" do |t|
+    t.integer  "user_id",                    comment: "用户ID"
+    t.string   "resource_type",              comment: "关联类型"
+    t.integer  "resource_id",                comment: "关联ID"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "comments", force: :cascade, comment: "留言板" do |t|
+    t.integer  "pet_id",                  comment: "宠物ID"
+    t.integer  "user_id",                 comment: "用户ID"
+    t.text     "content",                 comment: "留言内容"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade, comment: "消息表" do |t|
+    t.integer  "sender_id",                                   comment: "发送者"
+    t.integer  "receiver_id",                                 comment: "接收者"
+    t.string   "content",                                     comment: "内容"
+    t.string   "status",      default: "unread",              comment: "状态"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "title",                                       comment: "标题"
+  end
+
+  create_table "micro_blogs", force: :cascade, comment: "宠物动态" do |t|
+    t.integer  "pet_id",                  comment: "宠物ID"
+    t.integer  "user_id",                 comment: "用户ID"
+    t.text     "content",                 comment: "动态内容"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "news", force: :cascade, comment: "首页新闻" do |t|
+    t.string   "resource_type",              comment: "关联类型"
+    t.integer  "resource_id",                comment: "关联ID"
+    t.string   "poster",                     comment: "新闻海报"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "pet_applications", force: :cascade, comment: "宠物申请" do |t|
+    t.string   "category",                 comment: "申请类别"
+    t.string   "user_id",                  comment: "申请人"
+    t.string   "pet_id",                   comment: "申请宠物"
+    t.text     "description",              comment: "申请描述"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "pets", force: :cascade, comment: "宠物表" do |t|
+    t.string   "name",                                 comment: "宠物名"
+    t.string   "species",                              comment: "物种"
+    t.string   "gender",                               comment: "宠物性别"
+    t.string   "status",                               comment: "宠物状态"
+    t.integer  "provider_id",                          comment: "关联宠物提供人"
+    t.integer  "adopter_id",                           comment: "关联宠物领养人"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "avatar",                               comment: "头像"
+    t.string   "description",                          comment: "描述"
+    t.integer  "liked",       default: 0,              comment: "收藏数"
+    t.string   "location",                             comment: "所在地"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "album_id"
+    t.string   "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_replies", force: :cascade, comment: "帖子回复" do |t|
+    t.integer  "post_id",                 comment: "帖子ID"
+    t.text     "content",                 comment: "回复内容"
+    t.integer  "no",                      comment: "楼层数"
+    t.integer  "user_id",                 comment: "回复人ID"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade, comment: "论坛帖子" do |t|
+    t.integer  "topic_id",                  comment: "板块ID"
+    t.integer  "user_id",                   comment: "发帖人ID"
+    t.string   "title",                     comment: "帖子标题"
+    t.integer  "reply_number",              comment: "帖子回复数"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "topics", force: :cascade, comment: "论坛板块" do |t|
+    t.string   "name",                     comment: "板块名"
+    t.string   "avatar",                   comment: "板块头像"
+    t.string   "post_number",              comment: "板块帖子数"
+    t.string   "description",              comment: "板块描述"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "users", force: :cascade, comment: "用户表" do |t|
+    t.string   "username",                comment: "用户名"
+    t.string   "password",                comment: "密码"
+    t.string   "real_name",               comment: "真实姓名"
+    t.string   "phone",                   comment: "手机号码"
+    t.string   "email",                   comment: "邮箱地址"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "avatar",                  comment: "头像"
+  end
+
+end
