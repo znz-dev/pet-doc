@@ -1,0 +1,43 @@
+# post_reply
+---
+## 新建一个帖子回复
+
+```
+POST /posts/:post_id/post_replies.json
+```
+
+## Parameters
+
+|参数名|参数类型|是否必填|参数描述|
+|-----|--------|-------|--------|
+|:post_id|int|Y|帖子ID|
+|user_id|int|Y|用户ID|
+|content|string|Y|帖子内容|
+
+
+## Examples
+```
+localhost:3000/posts/6/post_replies.json?user_id=1&content=是吗
+```
+
+## Success Response
+```ruby
+{
+  "status": {
+    "code": "20000",
+    "message": ""
+  },
+  "data": {
+    "post_reply": {
+      "id": 6,
+      "content": "是吗",
+      "user": {
+        "id": 1,
+        "username": "admin",
+        "avatar": {
+          "url": "/uploads/user/avatar/1/yellow_star.jpg"
+        }
+      }
+    }
+  }
+```

@@ -1,0 +1,31 @@
+# post_reply
+---
+## 删除一个帖子回复
+
+```
+DELETE /posts/:post_id/post_replies/:id.json
+```
+
+## Parameters
+
+|参数名|参数类型|是否必填|参数描述|
+|-----|--------|-------|--------|
+|:post_id|int|Y|帖子ID|
+|:id|int|Y|帖子回复ID|
+
+
+## Examples
+```
+localhost:3000/posts/6/post_replies/8.json
+```
+
+## Success Response
+```ruby
+{
+  "status": {
+    "code": "20000",
+    "message": ""
+  },
+  "data": {}
+}
+```
