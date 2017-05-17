@@ -11,7 +11,7 @@ GET /pets/:pet_id/comments.json
 
 |参数名|参数类型|是否必填|参数描述|
 |-----|--------|-------|--------|
-|pet_id|int|Y|宠物ID|
+|:pet_id|int|Y|宠物ID|
 |page|int|N|页数(默认为1)|
 |per|int|N|每页显示数(默认为12)|
 

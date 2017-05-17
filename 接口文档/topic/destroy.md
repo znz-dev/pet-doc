@@ -1,21 +1,21 @@
-# Comment
+# Topic
 ---
-## 删除留言
+## 删除板块
 
 ```
-DELETE /comments/:id.json
+DELETE /topics/:id.json
 ```
 
 ## Parameters
 
 |参数名|参数类型|是否必填|参数描述|
 |-----|--------|-------|--------|
-|:id|int|Y|留言ID|
+|:id|int|Y|板块ID|
 
 
 ## Examples
 ```
-localhost:3000/comments/1.json
+localhost:3000/topics/3.json
 ```
 
 ## Success Response
